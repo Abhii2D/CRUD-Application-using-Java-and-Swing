@@ -1,0 +1,95 @@
+// Creating database 
+	-- create database bank;
+
+// useing the database
+	-- use database;
+
+// creating the table in database
+	-- create table Details(id int, username varchar(50),salary decimal(7,2));
+
+// Inserting the data into table
+	single	 -- insert into Details values(1,'Abhijeet',23455.55);
+	Multiple -- insert into details values(2,'Abhishek',50000.50),(3,'supriya',99999.99);
+	AttributeVise -- insert into details(id,username) values(4,'hansraj',88888.99);
+
+// Executing the Query
+	-- select * from details;
+
+// Deleting the content of tables
+	-- delete from details where id=1;
+	-- delete from details;
+
+//  Truncate to delete the content from db
+	-- truncate table details;
+
+// Deleting whole data base and table
+	-- drop table details
+	-- drop database bank;
+
+//updating the data of tables
+	-- update emp set salary= 99999.9 , name='abhishekdd' where id = 1;
+
+// AND , OR , NOT , IN , ANY , ALL , SOME Operators
+
+	-- select * from details where id=1 and name='Abhijeet';
+1 AND	-- select * from details where id >2 and salary <= 88888.88;
+	
+	-- select * from details where id = 2 or name = 'Abhijeet';
+2 OR	-- select * from details where id >= 2 or city='pune';
+
+3 NOT	-- select * from details where not (id>2 or city='pune');
+
+4 IN	-- select * from derails where id in(2,4,6);
+	-- select * from details where id not in(1,3);
+5 ANY	-- select * from details where sal = any(select sal from employe where department = 'hr');
+
+6 ALL	-- select * from details where sal > all(select sal from emp where dep='hr');
+
+// constraints in mySql (COnstrint are noting but the rules set for the database);
+ 
+1 check constraint
+	-- create table user(id int,name varchar(50),age int,constraint chk check(age>= 18));
+	--insert into user values(1,'a',16),(2,'b',49),(3,'c',34);
+	-- select * from table;
+	-- alter table user drop constraint chk;
+	-- alter table user add constraint chkk check(id is not null); 
+
+2 unique constraint
+	-- create table user(id int,name varcahr(49), constraint uni unique(id));
+	--insert into user values(1,'a',16),(2,'b',49),(3,'c',34);
+	-- select * from table;
+	-- alter table user drop constraint uni
+
+3 Primary Key 
+	 
+	-- create table user(id int,name varchar(50),age int,constraint chk primary key (id));
+	--insert into user values(1,'a',16),(2,'b',49),(3,'c',34);
+	-- select * from table;
+	-- alter table user drop primary key;
+	-- alter table user add constraint pk primary key(did);
+
+4 forigen key
+	-- create table emp (eid int,ename varchar(40),did int,constrains fk foreign key(did) references user(id);
+	--insert into empvalues(1,'a',2),(2,'b',1),(3,'c',3);
+	-- alter table emp drop constraint fk;
+	-- alter table emp add constraint fk foreign key(did) reference user(id);
+
+5 Default constraint
+	-- create table admin(id int,name varchar(34),order,Status varcahr(43) default 'pending');
+	--insert into admin values(11,'ad','Received');
+	--insert into admins values(22,'aa',null);
+	-- insert into admins(id,name) values(22,'aa');
+	select * fromm admin;
+
+6 Join's
+	1 Inner Join
+		To fetch the comman data from two Table we use Inner Join such as city in two tables.
+		to perform join operation we required to for co-relation between 2 tables using 
+		priamary key and forign key.
+	-- select * from  table1 inner join table2 on table1.col_name = table2.col_name;
+	-- select p.name , p.city , r.state from table1 p inner join table2 r on p.city = r.id
+	
+	2 left Join
+	3 Right Join
+	4 Cross Join		
+		
